@@ -1,0 +1,15 @@
+[
+{"chinese_name": "中央财经大学", "foreign_name": "Central University of Finance and Economics", "abbreviation": "中央财大、中财大、CUFE", "founding_time": "1949年11月", "address": "北京市海淀区学院南路39号（南路校区） // 北京市昌平区沙河高教园区（沙河校区）"},
+{"chinese_name": "上海交通大学", "abbreviation": "交通大学、上海交大（SJTU）", "founding_time": "1896年（清光绪二十二年）", "address": "上海市闵行区东川路800号"},
+{"chinese_name": "中国人民大学", "foreign_name": "Renmin University of China", "abbreviation": "人大、RUC", "founding_time": "1937年（丁丑年）8月", "address": "北京市海淀区中关村大街59号（中关村校区） // 江苏省苏州工业园区仁爱路158号（苏州校区）"},
+{"chinese_name": "复旦大学", "foreign_name": "Fudan University", "abbreviation": "复旦·FUDAN", "founding_time": "1905年（乙巳年）6月29日", "address": "上海市杨浦区邯郸路220号"},
+{"chinese_name": "北京大学", "foreign_name": "Peking University", "abbreviation": "北大 PKU ", "founding_time": "1898年", "address": "北京市海淀区颐和园路5号"},
+{"chinese_name": "浙江大学", "foreign_name": "Zhejiang University", "abbreviation": "浙大、ZJU", "founding_time": "1897年5月21日", "address": "紫金港校区：杭州市西湖区余杭塘路866号 // 玉泉校区：杭州市西湖区浙大路38号 // 西溪校区：杭州市西湖区天目山路148号 // 华家池校区：杭州市江干区凯旋路268号 // 之江校区：杭州市西湖区之江路51号 // 舟山校区：舟山市定海区浙大路1号 // 海宁校区：海宁市海州东路718号 "},
+{"chinese_name": "中国科学技术大学", "abbreviation": "中国科大（USTC）", "founding_time": "1958年9月", "address": "安徽省合肥市金寨路96号"},
+{"chinese_name": "南开大学", "foreign_name": "Nankai University, NKU", "abbreviation": "南开", "founding_time": "1919年", "address": "天津市南开区卫津路94号"},
+{"chinese_name": "上海财经大学", "foreign_name": "Shanghai University of Finance and Economics", "abbreviation": "上海财大（SUFE）", "founding_time": "1917年", "address": "主校区：上海市杨浦区国定路777号  // 中山北一路校区：上海市虹口区中山北一路369号  // 昆山路校区：上海市虹口区昆山路146号 "},
+{"chinese_name": "北京航空航天大学", "foreign_name": "Beihang University", "abbreviation": "北航、BUAA ", "founding_time": "1952年", "address": "学院路校区：北京市海淀区学院路37号 // 沙河校区：北京市昌平区沙河高教园南三街9号"},
+{"chinese_name": "同济大学", "abbreviation": "同济（TJU）", "founding_time": "1907年（丁未 光绪33年）", "address": "上海市杨浦区四平路1239号"},
+{"chinese_name": "南京大学", "foreign_name": "Nanjing University", "abbreviation": "南大(NJU)", "founding_time": "1902年(壬寅年)", "address": "南京市鼓楼区汉口路22号"},
+{"chinese_name": "清华大学", "foreign_name": "Tsinghua University", "abbreviation": "清华", "founding_time": "1911年", "address": "北京市海淀区清华大学"}
+]
