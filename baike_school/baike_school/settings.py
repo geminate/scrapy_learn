@@ -11,6 +11,7 @@ LOG_LEVEL = 'DEBUG'
 # 输出
 ITEM_PIPELINES = {
     'baike_school.pipelines.SaveFilePipeline': 300,
+    'baike_school.pipelines.MySqlPipeline': 500,
 }
 
 # 输出文件路径
