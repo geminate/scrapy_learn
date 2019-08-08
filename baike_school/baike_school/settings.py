@@ -1,7 +1,7 @@
-BOT_NAME = 'scrapy_learn'
+BOT_NAME = 'baike_school'
 
-SPIDER_MODULES = ['scrapy_learn.spiders']
-NEWSPIDER_MODULE = 'scrapy_learn.spiders'
+SPIDER_MODULES = ['baike_school.spiders']
+NEWSPIDER_MODULE = 'baike_school.spiders'
 
 ROBOTSTXT_OBEY = False
 

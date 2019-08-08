@@ -4,7 +4,7 @@ from scrapy import Request
 from scrapy.spiders import CrawlSpider
 from re import sub
 from pyquery import PyQuery
-from scrapy_learn.items import BaikeSchoolInfo
+from ..items import BaikeSchoolInfo
 
 
 class BaikeSchool(CrawlSpider):
