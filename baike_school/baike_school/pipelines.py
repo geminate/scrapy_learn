@@ -27,5 +27,5 @@ class SaveFilePipeline(object):
         self.fp.close()
 
     @classmethod
-    def from_crawler(cls, spider):
-        return cls('./data.json')
+    def from_crawler(cls, crawler):
+        return cls(crawler.settings.get('FILE_PATH'))
