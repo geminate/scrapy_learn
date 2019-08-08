@@ -49,8 +49,56 @@ class BaikeSchool(CrawlSpider):
             if label.find('创办时间') != -1:
                 school_info['founding_time'] = self.get_val_from_dt(dtItem)
 
+            if label.find('类别') != -1:
+                school_info['category'] = self.get_val_from_dt(dtItem)
+
+            if label.find('类型') != -1:
+                school_info['type'] = self.get_val_from_dt(dtItem)
+
+            if label.find('属性') != -1:
+                school_info['attribute'] = self.get_val_from_dt(dtItem)
+
+            if label.find('主管部门') != -1:
+                school_info['competent_department'] = self.get_val_from_dt(dtItem)
+
+            if label.find('现任领导') != -1:
+                school_info['present_leader'] = self.get_val_from_dt(dtItem)
+
+            if label.find('专职院士') != -1:
+                school_info['academician'] = self.get_val_from_dt(dtItem)
+
+            if label.find('本科专业') != -1:
+                school_info['undergraduate_major'] = self.get_val_from_dt(dtItem)
+
+            if label.find('硕士点') != -1:
+                school_info['master'] = self.get_val_from_dt(dtItem)
+
+            if label.find('博士点') != -1:
+                school_info['doctoral'] = self.get_val_from_dt(dtItem)
+
+            if label.find('博士后') != -1:
+                school_info['post_doctoral'] = self.get_val_from_dt(dtItem)
+
+            if label.find('重点学科') != -1:
+                school_info['key_disciplines'] = self.get_val_from_dt(dtItem)
+
+            if label.find('院系') != -1:
+                school_info['departments'] = self.get_val_from_dt(dtItem)
+
+            if label.find('校庆日') != -1:
+                school_info['decoration_day'] = self.get_val_from_dt(dtItem)
+
             if label.find('地址') != -1:
                 school_info['address'] = self.get_val_from_dt(dtItem)
+
+            if label.find('院校代码') != -1:
+                school_info['code'] = self.get_val_from_dt(dtItem)
+
+            if label.find('奖项') != -1:
+                school_info['prize'] = self.get_val_from_dt(dtItem)
+
+            if label.find('校友') != -1:
+                school_info['alumnus'] = self.get_val_from_dt(dtItem)
 
         yield school_info
 
