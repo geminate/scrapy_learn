@@ -19,13 +19,7 @@ class BaikeSchool(CrawlSpider):
             url = 'https://baike.baidu.com/item/' + tableItem.text()
             if tableItem.text() == '北京师范大学':
                 break
-            request = Request(url=url,
-                              headers={
-                                  'User-Agent': "USER_AGENT = 'Mozilla/5.0 (X11; Linux x86_64) "
-                                                "AppleWebKit/537.36 (KHTML, like Gecko) "
-                                                "Chrome/58.0.3029.110 Safari/537.36'"
-                              },
-                              callback=self.parse_address)
+            request = Request(url=url, callback=self.parse_address)
             request.meta['school'] = tableItem.text()
             yield request
 

@@ -10,3 +10,7 @@ LOG_LEVEL = 'DEBUG'
 
 # 输出编码格式
 FEED_EXPORT_ENCODING = 'UTF-8'
+
+ITEM_PIPELINES = {
+    'baike_school.pipelines.SaveFilePipeline': 300,
+}
