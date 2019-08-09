@@ -20,20 +20,17 @@ class BaikeSchool(CrawlSpider):
             url = 'https://baike.baidu.com/item/' + tableItem.text()
             request = Request(url=url, callback=self.parse_address)
             request.meta['index'] = index
+            request.meta['chinese_name'] = tableItem.text()
             index = index + 1
             yield request
 
     # 从百度百科上爬取学校基本信息
     def parse_address(self, response):
         query = PyQuery(response.body)
-        school_info = BaikeSchoolInfoItem()
+        school_info = BaikeSchoolInfoItem(index=response.meta['index'], chinese_name=response.meta['chinese_name'])
 
         for dtItem in query('.basicInfo-block:not(.overlap) > dt').items():
             label = dtItem.text().replace(' ', '')
-            school_info['index'] = response.meta['index']
-
-            if label.find('中文名') != -1:
-                school_info['chinese_name'] = self.get_val_from_dt(dtItem)
 
             if label.find('外文名') != -1 or label.find('英文名') != -1:
                 school_info['foreign_name'] = self.get_val_from_dt(dtItem)

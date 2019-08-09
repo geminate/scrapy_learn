@@ -6,7 +6,7 @@ NEWSPIDER_MODULE = 'baike_school.spiders'
 ROBOTSTXT_OBEY = False
 
 # LOG 等级
-LOG_LEVEL = 'WARN'
+LOG_LEVEL = 'DEBUG'
 
 # 输出
 ITEM_PIPELINES = {
