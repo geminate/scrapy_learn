@@ -1,7 +1,12 @@
 from scrapy import Item, Field
+from peewee import CharField, IntegerField, MySQLDatabase, Model
+
+db = MySQLDatabase("scrapy_learn", host='127.0.0.1', port=3306, user='root', passwd='root', charset='utf8')
 
 
-class BaikeSchoolInfo(Item):
+class BaikeSchoolInfoItem(Item):
+    index = Field()
+
     # 中文名
     chinese_name = Field()
 
@@ -64,3 +69,31 @@ class BaikeSchoolInfo(Item):
 
     # 知名校友
     alumnus = Field()
+
+
+class BaikeSchoolInfo(Model):
+    index = IntegerField(primary_key=True, null=False)
+    chinese_name = CharField(null=True)
+    foreign_name = CharField(null=True)
+    abbreviation = CharField(null=True)
+    founding_time = CharField(null=True)
+    category = CharField(null=True)
+    type = CharField(null=True)
+    attribute = CharField(null=True)
+    competent_department = CharField(null=True)
+    present_leader = CharField(null=True)
+    academician = CharField(null=True)
+    undergraduate_major = CharField(null=True)
+    master = CharField(null=True)
+    doctoral = CharField(null=True)
+    post_doctoral = CharField(null=True)
+    key_disciplines = CharField(null=True)
+    departments = CharField(max_length=1000, null=True)
+    decoration_day = CharField(null=True)
+    address = CharField(max_length=1000, null=True)
+    code = CharField(null=True)
+    prize = CharField(max_length=1000, null=True)
+    alumnus = CharField(null=True)
+
+    class Meta:
+        database = db

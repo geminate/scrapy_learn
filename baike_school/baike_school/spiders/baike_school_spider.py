@@ -4,7 +4,7 @@ from scrapy import Request
 from scrapy.spiders import CrawlSpider
 from re import sub
 from pyquery import PyQuery
-from ..items import BaikeSchoolInfo
+from ..items import BaikeSchoolInfoItem
 
 
 class BaikeSchool(CrawlSpider):
@@ -15,26 +15,27 @@ class BaikeSchool(CrawlSpider):
     # 从学校列表页面爬取 985/211 大学列表
     def parse(self, response):
         query = PyQuery(response.body)
+        index = 1
         for tableItem in query('#newsContent table:nth-of-type(2) tr:not(:first-child) td:nth-of-type(2)').items():
             url = 'https://baike.baidu.com/item/' + tableItem.text()
-            if tableItem.text() == '北京师范大学':
-                break
             request = Request(url=url, callback=self.parse_address)
-            request.meta['school'] = tableItem.text()
+            request.meta['index'] = index
+            index = index + 1
             yield request
 
     # 从百度百科上爬取学校基本信息
     def parse_address(self, response):
         query = PyQuery(response.body)
-        school_info = BaikeSchoolInfo()
+        school_info = BaikeSchoolInfoItem()
 
         for dtItem in query('.basicInfo-block:not(.overlap) > dt').items():
             label = dtItem.text().replace(' ', '')
+            school_info['index'] = response.meta['index']
 
             if label.find('中文名') != -1:
                 school_info['chinese_name'] = self.get_val_from_dt(dtItem)
 
-            if label.find('外文名') != -1:
+            if label.find('外文名') != -1 or label.find('英文名') != -1:
                 school_info['foreign_name'] = self.get_val_from_dt(dtItem)
 
             if label.find('简称') != -1:
@@ -55,7 +56,7 @@ class BaikeSchool(CrawlSpider):
             if label.find('主管部门') != -1:
                 school_info['competent_department'] = self.get_val_from_dt(dtItem)
 
-            if label.find('现任领导') != -1:
+            if label.find('现任领导') != -1 or label.find('现任校长') != -1:
                 school_info['present_leader'] = self.get_val_from_dt(dtItem)
 
             if label.find('专职院士') != -1:

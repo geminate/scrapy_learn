@@ -1,6 +1,6 @@
 from scrapy.exporters import JsonLinesItemExporter
 import os
-import pymysql
+from .items import BaikeSchoolInfo
 
 
 # 将结果保存为 .json 文件
@@ -36,25 +36,21 @@ class SaveFilePipeline(object):
 class MySqlPipeline(object):
 
     def __init__(self):
-        self.connect = pymysql.connect(
-            host='127.0.0.1',
-            port=3306,
-            db='scrapy_learn',
-            user='root',
-            passwd='root',
-            charset='utf8',
-            use_unicode=True)
-        self.cursor = self.connect.cursor()
+        pass
+
+    def open_spider(self, spider):
+        if not BaikeSchoolInfo.table_exists():
+            BaikeSchoolInfo.create_table()
 
     def process_item(self, item, spider):
-        self.cursor.execute('insert into `baike_school`(`chinese_name`, `foreign_name`) value (%s, %s)',
-                            (item['chinese_name'], item['foreign_name'],))
-        self.connect.commit()
+        if BaikeSchoolInfo.get_or_none(chinese_name=item['chinese_name']):
+            BaikeSchoolInfo(**item).save()
+        else:
+            BaikeSchoolInfo.create(**item)
         return item
 
     def close_spider(self, spider):
-        self.cursor.close()
-        self.connect.close()
+        pass
 
     @classmethod
     def from_crawler(cls, crawler):
