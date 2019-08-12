@@ -1,7 +1,7 @@
 from scrapy import Item, Field
 
 
-class V2exItem(Item):
+class V2exCookieItem(Item):
     # 标题
     title = Field()
 

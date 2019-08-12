@@ -1,6 +1,6 @@
 from scrapy.exporters import JsonLinesItemExporter
 import os
-from .items import V2exItem
+from .items import V2exCookieItem
 
 
 # 将结果保存为 .json 文件
