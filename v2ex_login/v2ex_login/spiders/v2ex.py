@@ -17,7 +17,19 @@ class V2exLogin(CrawlSpider):
     captcha_code = ''  # 验证码请求参数key
 
     headers = {
+        'authority': 'www.v2ex.com',
+        'cache-control': 'max-age=0',
+        'origin': 'https://www.v2ex.com',
+        'upgrade-insecure-requests': '1',
+        'content-type': 'application/x-www-form-urlencoded',
         'User-Agent': "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36",
+        'sec-fetch-mode': 'navigate',
+        'sec-fetch-user': '?1',
+        'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3',
+        'sec-fetch-site': 'same-origin',
+        'referer': 'https://www.v2ex.com/signin',
+        'accept-encoding': 'gzip, deflate, br',
+        'accept-language': 'zh-CN,zh;q=0.9',
     }
 
     def start_requests(self):
@@ -65,4 +77,9 @@ class V2exLogin(CrawlSpider):
     def parse_after_login(self, response):
         print(response.url)
         print(response.text)
-        pass
+        yield Request(url='https://www.v2ex.com/recent?p=2', headers=self.headers, meta={'cookiejar': True},
+                      callback=self.parse_page)
+
+    def parse_page(self, response):
+        print(response.url)
+        print(response.text)
