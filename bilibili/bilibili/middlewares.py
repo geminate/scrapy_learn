@@ -7,7 +7,6 @@ class RandomProxyMiddleware(object):
         request.headers.setdefault('User-Agent',
                                    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36")
         proxy = self.proxy()
-        print('开始使用代理：' + proxy + ' 获取 ID: ' + request.meta['aid'])
         request.meta['proxy'] = 'https://' + proxy
 
     def process_response(self, request, response, spider):
